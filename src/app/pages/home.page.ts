@@ -47,7 +47,7 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
           <ng-icon name="lucideGithub" />
         </a>
       </div>
-      <p class="text-muted-foreground mt-2">
+      <p class="text-muted-foreground mt-3">
         The gallery component is built using the
         <a
           href="https://photoswipe.com/"
@@ -59,7 +59,7 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
         library.
       </p>
 
-      <p class="text-muted-foreground mt-2">
+      <p class="text-muted-foreground mt-3">
         Install <code class="${code}">npm install photoswipe</code> and add the styles to your
         global styles file:<br />
         <code class="${code}">@import 'photoswipe/photoswipe.css' layer(components);</code>
@@ -73,7 +73,7 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
       <h3 id="gallery-carousel-preview" class="pt-(--header-height) text-xl font-medium">
         Gallery and Carousel Preview
       </h3>
-      <p class="text-muted-foreground mt-2">
+      <p class="text-muted-foreground mt-3">
         Gallery in combination with spartan/ui
         <a
           href="https://spartan.ng/components/carousel"

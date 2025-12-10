@@ -43,3 +43,4 @@ __screenshots__/
 Thumbs.db
 
 .firebase/
+firebase-debug.log
