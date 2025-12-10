@@ -7,6 +7,7 @@ import { H2, H3 } from '../ui/heading';
 import { Layout } from '../ui/layout';
 import { Preview } from '../ui/preview';
 import { code } from '../ui/typography';
+import { DrawerPreview } from './components/drawer/drawer.preview';
 import { GalleryCaptionPreview } from './components/gallery/gallery-caption.preview';
 import { GalleryCarouselPreview } from './components/gallery/gallery-carousel.preview';
 import { GalleryPreview } from './components/gallery/gallery.preview';
@@ -23,6 +24,9 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
     GalleryPreview,
     GalleryCarouselPreview,
     GalleryCaptionPreview,
+    GalleryPreview,
+    GalleryCarouselPreview,
+    DrawerPreview,
   ],
   providers: [provideIcons({ lucideGithub })],
   template: `
@@ -148,6 +152,36 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
       </p>
       <div elbPreview>
         <elb-gallery-caption-preview />
+      </div>
+
+      <div class="flex items-baseline justify-between gap-6">
+        <elb-h2 id="drawer">Drawer</elb-h2>
+        <a
+          hlmBtn
+          variant="outline"
+          size="sm"
+          href="${config.github}/tree/main/libs/elbe/drawer/src/lib"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open in
+          <ng-icon name="lucideGithub" />
+        </a>
+      </div>
+      <p class="text-muted-foreground mt-3">
+        The drawer component is built using the
+        <a href="https://panejs.com/" target="_blank" rel="noopener noreferrer" class="underline"
+          >Cupertino Panes</a
+        >
+        library.
+      </p>
+
+      <p class="text-muted-foreground mt-3">
+        Install <code class="${code}">npm install cupertino-pane</code>.
+      </p>
+
+      <div elbPreview>
+        <elb-drawer-preview />
       </div>
     </elb-layout>
   `,
