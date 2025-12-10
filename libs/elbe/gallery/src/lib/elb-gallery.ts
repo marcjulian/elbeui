@@ -36,7 +36,7 @@ export class ElbGallery implements OnDestroy {
   public readonly galleryId = input<ElementProvider>(`gallery-${ElbGallery._id++}`);
   public readonly children = input<ElementProvider>('a');
 
-  public readonly options = input<GalleryOptions>(this._config.options);
+  public readonly options = input<GalleryOptions>();
 
   /** events */
   public readonly onClose = output();
@@ -51,6 +51,7 @@ export class ElbGallery implements OnDestroy {
         children: this.children(),
         mainClass: this._computedPhotoswipeClass(),
         pswpModule: () => import('photoswipe'),
+        ...this._config.options,
         ...this.options(),
       });
 
