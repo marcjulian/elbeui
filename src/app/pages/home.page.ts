@@ -1,94 +1,71 @@
-import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ElbGalleryImports } from '@elbe/ui/gallery';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { lucideGithub } from '@ng-icons/lucide';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
-import { HlmCarouselImports } from '@spartan-ng/helm/carousel';
+import { config } from '../config';
 import { Layout } from '../ui/layout';
+import { Preview } from '../ui/preview';
+import { GalleryCarouselPreview } from './components/gallery/gallery-carousel.preview';
+import { GalleryPreview } from './components/gallery/gallery.preview';
 
 @Component({
   selector: 'elb-home-page',
-  imports: [HlmButtonImports, HlmCarouselImports, NgOptimizedImage, ElbGalleryImports, Layout],
+  imports: [HlmButtonImports, Layout, NgIcon, Preview, GalleryPreview, GalleryCarouselPreview],
+  providers: [provideIcons({ lucideGithub })],
   template: `
     <elb-layout>
-      <div class="mx-auto max-w-3xl pb-32">
-        <div>
-          <h1 class="text-3xl font-bold">elbe/ui</h1>
+      <div class="flex flex-col items-center justify-center gap-5 py-10">
+        <div class="text-center">
+          <h1 class="text-5xl font-bold">elbe/ui</h1>
+          <p class="text-muted-foreground mt-2 text-xl">Custom spartan/ui components</p>
         </div>
 
-        <button hlmBtn variant="outline">Welcome to elbe/ui!</button>
+        <a
+          hlmBtn
+          variant="outline"
+          href="${config.github}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <ng-icon name="lucideGithub" />
+          GitHub
+        </a>
+      </div>
 
-        <div class="flex flex-col gap-20">
-          <div>
-            <h2>Gallery</h2>
-            <elb-gallery class="grid grid-cols-3 gap-4">
-              @for (image of images; track $index) {
-                <elb-gallery-item
-                  class="aspect-square overflow-hidden rounded-lg"
-                  [imageSrc]="image.src"
-                  [width]="image.width"
-                  [height]="image.height"
-                >
-                  <img
-                    class="size-full object-cover"
-                    [ngSrc]="image.previewUrl"
-                    [width]="image.previewWidth"
-                    [height]="image.previewHeight"
-                    [alt]="image.alt"
-                    priority
-                  />
-                </elb-gallery-item>
-              }
-            </elb-gallery>
-          </div>
+      <h2 id="gallery" class="pt-(--header-height) text-2xl font-semibold">Gallery</h2>
+      <p class="text-muted-foreground mt-2">
+        The gallery component is built using the
+        <a
+          href="https://photoswipe.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline"
+          >photoswipe</a
+        >
+        library.
+      </p>
 
-          <div>
-            <h2>Carousel</h2>
-            <hlm-carousel [options]="{ loop: true }">
-              <hlm-carousel-content>
-                @for (image of images; track $index) {
-                  <hlm-carousel-item class="aspect-video overflow-hidden">
-                    <img
-                      class="size-full object-cover"
-                      [ngSrc]="image.src"
-                      [width]="image.width"
-                      [height]="image.height"
-                      [alt]="image.alt"
-                      priority
-                    />
-                  </hlm-carousel-item>
-                }
-              </hlm-carousel-content>
-            </hlm-carousel>
-          </div>
+      <h3 id="gallery-preview" class="pt-(--header-height) text-xl font-medium">Gallery Preview</h3>
+      <div elbPreview>
+        <elb-gallery-preview />
+      </div>
 
-          <div>
-            <h2>Gallery + Carousel</h2>
-            <elb-gallery>
-              <hlm-carousel [options]="{ loop: true }">
-                <hlm-carousel-content>
-                  @for (image of images; track $index) {
-                    <hlm-carousel-item class="aspect-video overflow-hidden">
-                      <elb-gallery-item
-                        [imageSrc]="image.src"
-                        [width]="image.width"
-                        [height]="image.height"
-                      >
-                        <img
-                          class="size-full object-cover"
-                          [ngSrc]="image.src"
-                          [width]="image.width"
-                          [height]="image.height"
-                          [alt]="image.alt"
-                          priority
-                        />
-                      </elb-gallery-item>
-                    </hlm-carousel-item>
-                  }
-                </hlm-carousel-content>
-              </hlm-carousel>
-            </elb-gallery>
-          </div>
-        </div>
+      <h3 id="gallery-carousel-preview" class="pt-(--header-height) text-xl font-medium">
+        Gallery and Carousel Preview
+      </h3>
+      <p class="text-muted-foreground mt-2">
+        Gallery in combination with spartan/ui
+        <a
+          href="https://spartan.ng/components/carousel"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline"
+          >carousel</a
+        >
+        component.
+      </p>
+      <div elbPreview>
+        <elb-gallery-carousel-preview />
       </div>
     </elb-layout>
   `,
