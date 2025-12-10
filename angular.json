@@ -38,7 +38,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "elb",
       "architect": {
         "build": {
           "builder": "@angular/build:application",

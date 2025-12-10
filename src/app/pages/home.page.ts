@@ -3,95 +3,98 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ElbGalleryImports } from '@elbe/ui/gallery';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { HlmCarouselImports } from '@spartan-ng/helm/carousel';
+import { Layout } from '../ui/layout';
 
 @Component({
-  selector: 'elb-home',
-  imports: [HlmButtonImports, HlmCarouselImports, NgOptimizedImage, ElbGalleryImports],
+  selector: 'elb-home-page',
+  imports: [HlmButtonImports, HlmCarouselImports, NgOptimizedImage, ElbGalleryImports, Layout],
   template: `
-    <div class="mx-auto max-w-3xl pb-32">
-      <div>
-        <h1 class="text-3xl font-bold">elbe/ui</h1>
-      </div>
-
-      <button hlmBtn variant="outline">Welcome to elbe/ui!</button>
-
-      <div class="flex flex-col gap-20">
+    <elb-layout>
+      <div class="mx-auto max-w-3xl pb-32">
         <div>
-          <h2>Gallery</h2>
-          <elb-gallery class="grid grid-cols-3 gap-4">
-            @for (image of images; track $index) {
-              <elb-gallery-item
-                class="aspect-square overflow-hidden rounded-lg"
-                [imageSrc]="image.src"
-                [width]="image.width"
-                [height]="image.height"
-              >
-                <img
-                  class="size-full object-cover"
-                  [ngSrc]="image.previewUrl"
-                  [width]="image.previewWidth"
-                  [height]="image.previewHeight"
-                  [alt]="image.alt"
-                  priority
-                />
-              </elb-gallery-item>
-            }
-          </elb-gallery>
+          <h1 class="text-3xl font-bold">elbe/ui</h1>
         </div>
 
-        <div>
-          <h2>Carousel</h2>
-          <hlm-carousel [options]="{ loop: true }">
-            <hlm-carousel-content>
+        <button hlmBtn variant="outline">Welcome to elbe/ui!</button>
+
+        <div class="flex flex-col gap-20">
+          <div>
+            <h2>Gallery</h2>
+            <elb-gallery class="grid grid-cols-3 gap-4">
               @for (image of images; track $index) {
-                <hlm-carousel-item class="aspect-video overflow-hidden">
+                <elb-gallery-item
+                  class="aspect-square overflow-hidden rounded-lg"
+                  [imageSrc]="image.src"
+                  [width]="image.width"
+                  [height]="image.height"
+                >
                   <img
                     class="size-full object-cover"
-                    [ngSrc]="image.src"
-                    [width]="image.width"
-                    [height]="image.height"
+                    [ngSrc]="image.previewUrl"
+                    [width]="image.previewWidth"
+                    [height]="image.previewHeight"
                     [alt]="image.alt"
                     priority
                   />
-                </hlm-carousel-item>
+                </elb-gallery-item>
               }
-            </hlm-carousel-content>
-          </hlm-carousel>
-        </div>
+            </elb-gallery>
+          </div>
 
-        <div>
-          <h2>Gallery + Carousel</h2>
-          <elb-gallery>
+          <div>
+            <h2>Carousel</h2>
             <hlm-carousel [options]="{ loop: true }">
               <hlm-carousel-content>
                 @for (image of images; track $index) {
                   <hlm-carousel-item class="aspect-video overflow-hidden">
-                    <elb-gallery-item
-                      [imageSrc]="image.src"
+                    <img
+                      class="size-full object-cover"
+                      [ngSrc]="image.src"
                       [width]="image.width"
                       [height]="image.height"
-                    >
-                      <img
-                        class="size-full object-cover"
-                        [ngSrc]="image.src"
-                        [width]="image.width"
-                        [height]="image.height"
-                        [alt]="image.alt"
-                        priority
-                      />
-                    </elb-gallery-item>
+                      [alt]="image.alt"
+                      priority
+                    />
                   </hlm-carousel-item>
                 }
               </hlm-carousel-content>
             </hlm-carousel>
-          </elb-gallery>
+          </div>
+
+          <div>
+            <h2>Gallery + Carousel</h2>
+            <elb-gallery>
+              <hlm-carousel [options]="{ loop: true }">
+                <hlm-carousel-content>
+                  @for (image of images; track $index) {
+                    <hlm-carousel-item class="aspect-video overflow-hidden">
+                      <elb-gallery-item
+                        [imageSrc]="image.src"
+                        [width]="image.width"
+                        [height]="image.height"
+                      >
+                        <img
+                          class="size-full object-cover"
+                          [ngSrc]="image.src"
+                          [width]="image.width"
+                          [height]="image.height"
+                          [alt]="image.alt"
+                          priority
+                        />
+                      </elb-gallery-item>
+                    </hlm-carousel-item>
+                  }
+                </hlm-carousel-content>
+              </hlm-carousel>
+            </elb-gallery>
+          </div>
         </div>
       </div>
-    </div>
+    </elb-layout>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Home {
+export class HomePage {
   images: {
     src: string;
     width: number;
