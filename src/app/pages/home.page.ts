@@ -33,7 +33,20 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
         </a>
       </div>
 
-      <h2 id="gallery" class="pt-(--header-height) text-2xl font-semibold">Gallery</h2>
+      <div class="flex items-center justify-between pt-(--header-height)">
+        <h2 id="gallery" class="text-2xl font-semibold">Gallery</h2>
+        <a
+          hlmBtn
+          variant="outline"
+          size="sm"
+          href="${config.github}/tree/main/libs/elbe/gallery/src/lib"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open in
+          <ng-icon name="lucideGithub" />
+        </a>
+      </div>
       <p class="text-muted-foreground mt-2">
         The gallery component is built using the
         <a
