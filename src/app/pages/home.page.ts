@@ -47,7 +47,7 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
         </a>
       </div>
 
-      <div class="flex items-end justify-between">
+      <div class="flex items-baseline justify-between gap-6">
         <elb-h2 id="gallery">Gallery</elb-h2>
         <a
           hlmBtn
@@ -79,7 +79,7 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
         <code class="${code}">@import 'photoswipe/photoswipe.css' layer(components);</code>
       </p>
 
-      <div class="flex items-end justify-between">
+      <div class="flex items-baseline justify-between gap-6">
         <elb-h3 id="gallery-preview">Gallery Preview</elb-h3>
         <a
           hlmBtn
@@ -97,7 +97,7 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
         <elb-gallery-preview />
       </div>
 
-      <div class="flex items-end justify-between">
+      <div class="flex items-baseline justify-between gap-6">
         <elb-h3 id="gallery-carousel-preview"> Gallery and Carousel Preview </elb-h3>
         <a
           hlmBtn
@@ -126,7 +126,7 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
         <elb-gallery-carousel-preview />
       </div>
 
-      <div class="flex items-end justify-between">
+      <div class="flex items-baseline justify-between gap-6">
         <elb-h3 id="gallery-caption-preview"> Gallery Caption </elb-h3>
         <a
           hlmBtn

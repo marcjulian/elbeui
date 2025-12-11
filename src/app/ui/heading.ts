@@ -8,13 +8,13 @@ import { lucideLink } from '@ng-icons/lucide';
   imports: [RouterLink, NgIcon],
   providers: [provideIcons({ lucideLink })],
   host: {
-    class: 'flex items-center gap-2 group pt-(--header-height)',
+    class: 'group pt-(--header-height)',
   },
   template: `
-    <h2 [id]="id()" class="text-2xl font-semibold">
+    <h2 [id]="id()" class="inline text-2xl font-semibold">
       <ng-content />
     </h2>
-    <a routerLink="." [fragment]="id()" class="inline-flex" aria-label="Link to heading">
+    <a routerLink="." [fragment]="id()" class="ml-2 inline-flex" aria-label="Link to heading">
       <span
         aria-hidden="true"
         class="hover:text-primary inline-flex transition-opacity group-hover:opacity-100 [@media(hover:hover)]:opacity-0"
@@ -34,13 +34,13 @@ export class H2 {
   imports: [RouterLink, NgIcon],
   providers: [provideIcons({ lucideLink })],
   host: {
-    class: 'flex items-center gap-2 group pt-(--header-height)',
+    class: 'group pt-(--header-height)',
   },
   template: `
-    <h3 [id]="id()" class="text-xl font-medium">
+    <h3 [id]="id()" class="inline text-xl font-medium">
       <ng-content />
     </h3>
-    <a routerLink="." [fragment]="id()" class="inline-flex" aria-label="Link to heading">
+    <a routerLink="." [fragment]="id()" class="ml-1 inline-flex" aria-label="Link to heading">
       <span
         aria-hidden="true"
         class="hover:text-primary inline-flex transition-opacity group-hover:opacity-100 [@media(hover:hover)]:opacity-0"
