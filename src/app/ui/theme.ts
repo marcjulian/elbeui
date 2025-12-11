@@ -1,10 +1,11 @@
-import { afterNextRender, Injectable, signal } from '@angular/core';
+import { afterNextRender, DOCUMENT, inject, Injectable, signal } from '@angular/core';
 
 const Theme = ['dark', 'light'] as const;
 type Theme = (typeof Theme)[number];
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
+  private readonly _document = inject(DOCUMENT);
   private _theme = signal<Theme | undefined>(undefined);
   public readonly theme = this._theme.asReadonly();
 
@@ -29,7 +30,7 @@ export class ThemeService {
   public toggle() {
     const newTheme = this._theme() === 'dark' ? 'light' : 'dark';
     this._theme.set(newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
+    this._document.documentElement.classList.toggle('dark', newTheme === 'dark');
     localStorage.setItem('theme', newTheme);
   }
 }
