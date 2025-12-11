@@ -21,6 +21,25 @@
           }));
       plausible.init();
     </script>
+
+    <script>
+      const getThemePreference = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+      const isDark = getThemePreference() === 'dark';
+      document.documentElement.classList.toggle('dark', isDark);
+
+      if (typeof localStorage !== 'undefined') {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+          if (!localStorage.getItem('theme')) {
+            document.documentElement.classList[e.matches ? 'add' : 'remove']('dark');
+          }
+        });
+      }
+    </script>
   </head>
   <body class="bg-background text-foreground [--header-height:--spacing(14)]">
     <app-root></app-root>

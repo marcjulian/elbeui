@@ -1,14 +1,15 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideGithub } from '@ng-icons/lucide';
+import { lucideGithub, lucideMoon, lucideSun } from '@ng-icons/lucide';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { config } from '../config';
+import { ThemeService } from './theme';
 
 @Component({
   selector: 'elb-header',
   imports: [RouterLink, NgIcon, HlmButtonImports],
-  providers: [provideIcons({ lucideGithub })],
+  providers: [provideIcons({ lucideGithub, lucideSun, lucideMoon })],
   template: `
     <header
       class="border-border bg-background/40 sticky top-0 z-10 flex h-(--header-height) items-center justify-between border-b px-4 backdrop-blur-lg"
@@ -19,9 +20,17 @@ import { config } from '../config';
         <a hlmBtn variant="ghost" href="${config.github}" target="_blank" rel="noopener noreferrer">
           <ng-icon name="lucideGithub" />
         </a>
+        <button hlmBtn variant="ghost" (click)="_themeService.toggle()">
+          <ng-icon [name]="_themeIcon()" />
+        </button>
       </nav>
     </header>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Header {}
+export class Header {
+  protected _themeService = inject(ThemeService);
+  protected _themeIcon = computed(() =>
+    this._themeService.theme() === 'dark' ? 'lucideMoon' : 'lucideSun',
+  );
+}
