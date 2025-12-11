@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideGithub, lucideMoon, lucideSun } from '@ng-icons/lucide';
@@ -21,7 +21,8 @@ import { ThemeService } from './theme';
           <ng-icon name="lucideGithub" />
         </a>
         <button hlmBtn variant="ghost" (click)="_themeService.toggle()">
-          <ng-icon [name]="_themeIcon()" />
+          <ng-icon name="lucideMoon" class="not-dark:hidden" />
+          <ng-icon name="lucideSun" class="dark:hidden" />
         </button>
       </nav>
     </header>
@@ -30,7 +31,4 @@ import { ThemeService } from './theme';
 })
 export class Header {
   protected _themeService = inject(ThemeService);
-  protected _themeIcon = computed(() =>
-    this._themeService.theme() === 'dark' ? 'lucideMoon' : 'lucideSun',
-  );
 }
