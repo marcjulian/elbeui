@@ -42,11 +42,11 @@ export class ElbGallery implements OnDestroy {
   public readonly onClose = output();
   public readonly onDestroy = output();
 
-  protected lightbox?: PhotoSwipeLightbox;
+  protected _lightbox?: PhotoSwipeLightbox;
 
   constructor() {
     afterNextRender(() => {
-      this.lightbox = new PhotoSwipeLightbox({
+      this._lightbox = new PhotoSwipeLightbox({
         gallery: `#${this.galleryId()}`,
         children: this.children(),
         mainClass: this._computedPhotoswipeClass(),
@@ -55,18 +55,18 @@ export class ElbGallery implements OnDestroy {
         ...this.options(),
       });
 
-      this.lightbox.on('close', () => this.onClose.emit());
-      this.lightbox.on('destroy', () => this.onDestroy.emit());
+      this._lightbox.on('close', () => this.onClose.emit());
+      this._lightbox.on('destroy', () => this.onDestroy.emit());
 
-      this.lightbox.init();
+      this._lightbox.init();
     });
   }
 
   open(index = 0) {
-    this.lightbox?.loadAndOpen(index);
+    this._lightbox?.loadAndOpen(index);
   }
 
   ngOnDestroy(): void {
-    this.lightbox?.destroy();
+    this._lightbox?.destroy();
   }
 }
