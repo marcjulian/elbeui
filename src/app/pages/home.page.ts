@@ -3,6 +3,7 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideGithub } from '@ng-icons/lucide';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { config } from '../config';
+import { H2, H3 } from '../ui/heading';
 import { Layout } from '../ui/layout';
 import { Preview } from '../ui/preview';
 import { code } from '../ui/typography';
@@ -17,6 +18,8 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
     Layout,
     NgIcon,
     Preview,
+    H2,
+    H3,
     GalleryPreview,
     GalleryCarouselPreview,
     GalleryCaptionPreview,
@@ -42,8 +45,9 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
         </a>
       </div>
 
-      <div class="flex items-center justify-between pt-(--header-height)">
-        <h2 id="gallery" class="text-2xl font-semibold">Gallery</h2>
+      <div class="flex items-center justify-between">
+        <elb-h2 id="gallery">Gallery</elb-h2>
+        <!-- <h2 id="gallery" >Gallery</h2> -->
         <a
           hlmBtn
           variant="outline"
@@ -74,14 +78,12 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
         <code class="${code}">@import 'photoswipe/photoswipe.css' layer(components);</code>
       </p>
 
-      <h3 id="gallery-preview" class="pt-(--header-height) text-xl font-medium">Gallery Preview</h3>
+      <elb-h3 id="gallery-preview">Gallery Preview</elb-h3>
       <div elbPreview>
         <elb-gallery-preview />
       </div>
 
-      <h3 id="gallery-carousel-preview" class="pt-(--header-height) text-xl font-medium">
-        Gallery and Carousel Preview
-      </h3>
+      <elb-h3 id="gallery-carousel-preview"> Gallery and Carousel Preview </elb-h3>
       <p class="text-muted-foreground mt-3">
         Gallery in combination with spartan/ui
         <a
@@ -96,9 +98,8 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
       <div elbPreview>
         <elb-gallery-carousel-preview />
       </div>
-      <h3 id="gallery-caption-preview" class="pt-(--header-height) text-xl font-medium">
-        Gallery Caption
-      </h3>
+
+      <elb-h3 id="gallery-caption-preview"> Gallery Caption </elb-h3>
       <p class="text-muted-foreground mt-3">
         Use
         <code class="${code}">elb-gallery-caption</code> to add captions to each image in the
