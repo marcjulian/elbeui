@@ -38,6 +38,7 @@ const defaultConfig: ElbGalleryConfig = {
     preloaderDelay: 2000,
     indexIndicatorSep: ' / ',
     preloadFirstSlide: true,
+    counter: false,
   },
 };
 

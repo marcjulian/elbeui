@@ -33,6 +33,16 @@ export class ElbGallery implements OnDestroy {
     ),
   );
 
+  public readonly counterClass = input<ClassValue>('');
+  protected readonly _computedCounterClass = computed(() =>
+    hlm('pswp_gallery-counter mt-4 ml-5', this.counterClass()),
+  );
+
+  public readonly counterTextClass = input<ClassValue>('');
+  protected readonly _computedCounterTextClass = computed(() =>
+    hlm('bg-muted-foreground text-muted rounded-sm px-2.5 py-1.5 text-xs', this.counterTextClass()),
+  );
+
   public readonly galleryId = input<ElementProvider>(`gallery-${ElbGallery._id++}`);
   public readonly children = input<ElementProvider>('a');
 
@@ -55,6 +65,9 @@ export class ElbGallery implements OnDestroy {
         ...this.options(),
       });
 
+      this._lightbox.on('uiRegister', () => {
+        this.registerGalleryCounter(this._lightbox!);
+      });
       this._lightbox.on('close', () => this.onClose.emit());
       this._lightbox.on('destroy', () => this.onDestroy.emit());
 
@@ -68,5 +81,18 @@ export class ElbGallery implements OnDestroy {
 
   ngOnDestroy(): void {
     this._lightbox?.destroy();
+  }
+
+  private registerGalleryCounter(lightbox: PhotoSwipeLightbox) {
+    lightbox.pswp!.ui!.registerElement({
+      name: 'gallery-counter',
+      order: 5,
+      onInit: (counterElement, pswp) => {
+        counterElement.className = this._computedCounterClass();
+        pswp.on('change', () => {
+          counterElement.innerHTML = `<span class="${this._computedCounterTextClass()}">${pswp.currIndex + 1 + pswp.options.indexIndicatorSep + pswp.getNumItems()}</span>`;
+        });
+      },
+    });
   }
 }
