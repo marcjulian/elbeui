@@ -30,7 +30,9 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
       <div class="flex flex-col items-center justify-center gap-6 py-10">
         <div class="text-center">
           <h1 class="text-5xl font-bold">elbe/<span class="text-primary">ui</span></h1>
-          <p class="text-muted-foreground mt-3 text-xl">Custom spartan/ui components</p>
+          <p class="text-muted-foreground mt-3 max-w-sm text-xl text-balance">
+            Angular UI components built with Tailwind CSS and spartan/ui
+          </p>
         </div>
 
         <a
