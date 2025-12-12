@@ -19,7 +19,7 @@ import { codeToHtml } from 'shiki/bundle/web';
         hlmBtn
         variant="ghost"
         size="icon"
-        class="absolute top-2 right-2 cursor-pointer dark:hover:bg-black/50"
+        class="absolute top-1 right-1 cursor-pointer dark:hover:bg-black/50"
         (click)="copy()"
         aria-label="Copy code"
       >
@@ -59,7 +59,7 @@ export class CodeBlock {
         transformers: [
           {
             pre(node) {
-              this.addClassToHast(node, 'p-3 rounded-md');
+              this.addClassToHast(node, 'p-3 rounded-md overflow-x-auto no-scrollbar');
             },
           },
         ],
