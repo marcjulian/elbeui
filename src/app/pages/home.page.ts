@@ -183,6 +183,8 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
       <div elbPreview>
         <elb-drawer-preview />
       </div>
+
+      <!-- TODO add sidebar + drawer preview - load example as iframe -->
     </elb-layout>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
