@@ -21,7 +21,7 @@ export class ElbGalleryCaption {
   });
   protected readonly _computedClass = computed(() =>
     hlm(
-      'bg-muted-foreground/80 text-muted absolute bottom-10 left-1/2 w-[calc(100%---spacing(14))] -translate-x-1/2 rounded-sm p-2 sm:max-w-xs',
+      'bg-gallery/80 text-gallery-foreground absolute bottom-10 left-1/2 w-[calc(100%---spacing(14))] -translate-x-1/2 rounded-sm p-2 sm:max-w-xs',
       this._userClass(),
     ),
   );

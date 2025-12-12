@@ -36,8 +36,8 @@ export class ElbGallery implements OnDestroy {
   public readonly photoswipeClass = input<ClassValue>();
   protected readonly _computedPhotoswipeClass = computed(() =>
     hlm(
-      '[--pswp-bg:var(--color-foreground)]',
-      '[--pswp-icon-color-secondary:var(--color-muted-foreground)] [--pswp-icon-color:var(--color-muted)] [--pswp-icon-stroke-color:var(--color-muted-foreground)]',
+      '[--pswp-bg:var(--color-black)]',
+      '[--pswp-icon-color-secondary:var(--color-white)] [--pswp-icon-color:var(--color-black)]',
       this.photoswipeClass(),
     ),
   );
@@ -50,7 +50,7 @@ export class ElbGallery implements OnDestroy {
   public readonly counterTextClass = input<ClassValue>('');
   protected readonly _computedCounterTextClass = computed(() =>
     hlm(
-      'bg-muted-foreground/80 text-muted rounded-sm px-2.5 py-1.5 text-xs',
+      'bg-gallery/80 text-gallery-foreground rounded-sm px-2.5 py-1.5 text-xs',
       this.counterTextClass(),
     ),
   );
