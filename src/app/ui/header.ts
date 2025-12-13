@@ -12,11 +12,16 @@ import { ThemeService } from '../utils/theme';
   providers: [provideIcons({ lucideGithub, lucideSun, lucideMoon })],
   template: `
     <header
-      class="border-border bg-background/40 sticky top-0 z-10 flex h-(--header-height) items-center justify-between border-b px-4 backdrop-blur-lg"
+      class="bg-background/40 sticky top-0 z-10 flex h-(--header-height) items-center gap-2 px-4 backdrop-blur-lg"
     >
-      <a routerLink="/" class="font-semibold"> elbe/<span class="text-primary">ui</span> </a>
+      <a routerLink="/" hlmBtn variant="ghost" size="sm" class="font-semibold">
+        <span>elbe/<span class="text-primary">ui</span></span>
+      </a>
 
-      <nav>
+      <!-- TODO add main nav here -->
+      <!-- <nav></nav> -->
+
+      <div class="ml-auto flex gap-1">
         <a hlmBtn variant="ghost" href="${config.github}" target="_blank" rel="noopener noreferrer">
           <ng-icon name="lucideGithub" />
         </a>
@@ -24,7 +29,7 @@ import { ThemeService } from '../utils/theme';
           <ng-icon name="lucideMoon" class="not-dark:hidden" />
           <ng-icon name="lucideSun" class="dark:hidden" />
         </button>
-      </nav>
+      </div>
     </header>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
