@@ -13,6 +13,8 @@
     "target": "ES2022",
     "module": "preserve",
     "paths": {
+      "@elbe/ui/drawer": ["./libs/elbe/drawer/src/index.ts"],
+      "@elbe/ui/gallery": ["./libs/elbe/gallery/src/index.ts"],
       "@spartan-ng/helm/button": ["./libs/ui/button/src/index.ts"],
       "@spartan-ng/helm/carousel": ["./libs/ui/carousel/src/index.ts"],
       "@spartan-ng/helm/icon": ["./libs/ui/icon/src/index.ts"],
@@ -22,9 +24,7 @@
       "@spartan-ng/helm/sidebar": ["./libs/ui/sidebar/src/index.ts"],
       "@spartan-ng/helm/skeleton": ["./libs/ui/skeleton/src/index.ts"],
       "@spartan-ng/helm/tooltip": ["./libs/ui/tooltip/src/index.ts"],
-      "@spartan-ng/helm/utils": ["./libs/ui/utils/src/index.ts"],
-      "@elbe/ui/drawer": ["./libs/elbe/drawer/src/index.ts"],
-      "@elbe/ui/gallery": ["./libs/elbe/gallery/src/index.ts"]
+      "@spartan-ng/helm/utils": ["./libs/ui/utils/src/index.ts"]
     }
   },
   "angularCompilerOptions": {
