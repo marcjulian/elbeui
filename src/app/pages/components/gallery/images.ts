@@ -18,13 +18,12 @@ export const images: {
     previewHeight: 450,
   },
   {
-    src: 'https://images.unsplash.com/photo-1515409116264-67afef5e27a7?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    // person-riding-on-boat-paddle-during-sunset
+    src: 'https://images.unsplash.com/photo-1727975387117-37e86dcbcbcd?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'Person riding on boat paddle during sunset',
-    width: 1587,
-    height: 2380,
+    width: 1287,
+    height: 1931,
     previewUrl:
-      'https://images.unsplash.com/photo-1515409116264-67afef5e27a7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://images.unsplash.com/photo-1727975387117-37e86dcbcbcd?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     previewWidth: 800,
     previewHeight: 1200,
   },
