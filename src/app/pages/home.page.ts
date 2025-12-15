@@ -3,9 +3,9 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideGithub } from '@ng-icons/lucide';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { config } from '../config';
+import { BaseLayout } from '../layouts/base.layout';
 import { CodeBlock } from '../ui/code-block';
 import { H2, H3 } from '../ui/heading';
-import { Layout } from '../ui/layout';
 import { Preview } from '../ui/preview';
 import { code, link } from '../ui/typography';
 import { DrawerPreview } from './components/drawer/drawer.preview';
@@ -18,7 +18,7 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
   selector: 'elb-home-page',
   imports: [
     HlmButtonImports,
-    Layout,
+    BaseLayout,
     NgIcon,
     Preview,
     H2,
@@ -33,7 +33,7 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
   ],
   providers: [provideIcons({ lucideGithub })],
   template: `
-    <elb-layout>
+    <elb-base-layout>
       <div class="flex flex-col items-center justify-center gap-6 py-10">
         <div class="text-center">
           <h1 class="text-5xl font-bold">elbe/<span class="text-primary">ui</span></h1>
@@ -185,7 +185,7 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
       </div>
 
       <!-- TODO add sidebar + drawer preview - load example as iframe -->
-    </elb-layout>
+    </elb-base-layout>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
