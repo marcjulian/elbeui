@@ -34,7 +34,7 @@ import { ClassValue } from 'clsx';
     >
       <iframe
         [src]="_iframeSrc()"
-        class="bg-background no-scrollbar relative z-20 h-full w-full"
+        class="bg-background no-scrollbar relative h-full w-full"
         #iframe
       ></iframe>
     </div>
