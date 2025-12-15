@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideGithub } from '@ng-icons/lucide';
+import { lucideEye, lucideGithub } from '@ng-icons/lucide';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { config } from '../config';
 import { BaseLayout } from '../layouts/base.layout';
@@ -20,6 +21,7 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
   imports: [
     HlmButtonImports,
     BaseLayout,
+    RouterLink,
     NgIcon,
     Preview,
     BlockPreview,
@@ -33,7 +35,7 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
     GalleryCarouselPreview,
     DrawerPreview,
   ],
-  providers: [provideIcons({ lucideGithub })],
+  providers: [provideIcons({ lucideGithub, lucideEye })],
   template: `
     <elb-base-layout>
       <div class="flex flex-col items-center justify-center gap-6 py-10">
@@ -188,17 +190,22 @@ import { GalleryPreview } from './components/gallery/gallery.preview';
 
       <div class="flex items-baseline justify-between gap-6">
         <elb-h3 id="sidebar-drawer-mobile">Sidebar with Drawer on Mobile</elb-h3>
-        <a
-          hlmBtn
-          variant="outline"
-          size="sm"
-          href="${config.github}/tree/main/src/app/pages/components/gallery/gallery.preview.ts"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Open in
-          <ng-icon name="lucideGithub" />
-        </a>
+        <div class="flex items-center gap-1">
+          <a [routerLink]="['/preview/sidebar-drawer']" hlmBtn variant="outline" size="icon-sm">
+            <ng-icon name="lucideEye" />
+          </a>
+          <a
+            hlmBtn
+            variant="outline"
+            size="sm"
+            href="${config.github}/tree/main/src/app/pages/components/gallery/gallery.preview.ts"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open in
+            <ng-icon name="lucideGithub" />
+          </a>
+        </div>
       </div>
 
       <elb-block-preview name="sidebar-drawer" [showImagesOnMobile]="false" />
