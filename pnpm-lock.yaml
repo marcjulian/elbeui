@@ -59,6 +59,9 @@ importers:
       express:
         specifier: 5.2.1
         version: 5.2.1
+      inter-ui:
+        specifier: ^4.1.1
+        version: 4.1.1
       photoswipe:
         specifier: ^5.4.4
         version: 5.4.4
@@ -4449,6 +4452,10 @@ packages:
   ini@6.0.0:
     resolution: {integrity: sha512-IBTdIkzZNOpqm7q3dRqJvMaldXjDHWkEDfrwGEQTs5eaQMWV+djAhR+wahyNNMAa+qpbDUhBMVt4ZKNwpPm7xQ==}
     engines: {node: ^20.17.0 || >=22.9.0}
+
+  inter-ui@4.1.1:
+    resolution: {integrity: sha512-451h0J29HyOmA+JXgSi/6M12tL7ZCZ8arYKZUXiOXTJpJbAKqJvFh3k5SiV3x7tKe0C0KyrKUUiQIvvZ2PQDcA==}
+    engines: {node: '>=16.0.0'}
 
   ip-address@10.1.0:
     resolution: {integrity: sha512-XXADHxXmvT9+CRxhXg56LJovE+bmWnEWB78LB83VZTprKTmaC5QfruXocxzTZ2Kl0DNwKuBdlIhjL8LeY8Sf8Q==}
@@ -11993,6 +12000,8 @@ snapshots:
   ini@5.0.0: {}
 
   ini@6.0.0: {}
+
+  inter-ui@4.1.1: {}
 
   ip-address@10.1.0: {}
 

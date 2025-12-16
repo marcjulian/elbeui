@@ -29,6 +29,7 @@
     "cupertino-pane": "1.5.4",
     "embla-carousel-angular": "21.0.0",
     "express": "5.2.1",
+    "inter-ui": "^4.1.1",
     "photoswipe": "^5.4.4",
     "rxjs": "7.8.2",
     "tailwind-merge": "3.4.0",
